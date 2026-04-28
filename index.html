@@ -85,16 +85,22 @@
     flex-direction: column;
     justify-content: center;
     min-height: 95px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: none;
     position: relative;
     box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.25);
   }
   
   .grid-item:hover {
     transform: scale(1.4);
     z-index: 100;
-    box-shadow: 0 10px 30px currentColor, 0 0 20px currentColor;
+    box-shadow: 0 10px 30px currentColor, 0 0 20px currentColor, inset 0 1px 0 rgba(255,255,255,0.25);
     text-shadow: 0 0 12px currentColor;
+  }
+
+  .grid-item:active {
+    transform: scale(1.35) translateY(1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3), inset 0 2px 4px rgba(0,0,0,0.2);
   }
 
   .grid-item span {
@@ -109,7 +115,7 @@
 <body>
 
 <div style="text-align: center; margin-bottom: 20px;">
-  <img src="https://i.postimg.cc/XNfRcM8q/Ran-favicon-directory.png" alt="Bazi Ran Directory" style="max-width: 200px; width: 100%; height: auto;">
+  <img src=https://i.postimg.cc/MZsnjcLC/Blue-Orchid-Web-Email.png" alt="Bazi Ran Directory" style="max-width: 200px; width: 100%; height: auto;">
 </div>
 
 <div class="nav-wrapper top-nav">
@@ -169,6 +175,7 @@
     div.className = 'grid-item';
     div.style.backgroundColor = colors.bg;
     div.style.color = colors.text;
+    div.style.backgroundImage = `linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.12) 100%)`;
     
     div.innerHTML = `<span style="color: ${colors.numColor}">${displayNum}</span>${label}`;
     
