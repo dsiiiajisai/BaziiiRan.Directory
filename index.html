@@ -105,7 +105,7 @@
     }
   }
 
-  .grid-item:active {
+  .grid-item:active, .grid-item.pressed {
     transform: scale(1.4);
     z-index: 100;
     box-shadow: 0 10px 30px currentColor, 0 0 20px currentColor, inset 0 1px 0 rgba(255,255,255,0.25);
@@ -192,8 +192,16 @@
     
     div.innerHTML = `<span style="color: ${colors.numColor}">${displayNum}</span>${label}`;
     
-    div.onclick = () => {
-      window.open(baseUrl + siteNum, '_blank');
+    div.addEventListener('touchstart', () => {
+      div.classList.add('pressed');
+      setTimeout(() => {
+        window.open(baseUrl + siteNum, '_blank');
+        div.classList.remove('pressed');
+      }, 350);
+    }, { passive: true });
+
+    div.onclick = (e) => {
+      if (e.pointerType !== 'touch') window.open(baseUrl + siteNum, '_blank');
     };
     
     container.appendChild(div);
